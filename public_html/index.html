@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+JsSIP && MFR    
+-->
+<html>
+    <head>
+        <title>KHOMP MFR</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css.css">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script type="text/javascript" src="node_modules/jssip/dist/jssip-0.6.18.min.js"></script>
+        <script type="text/javascript" src="node_modules/jssip/dist/jssip-0.6.18.js"></script>              
+        <script type="text/javascript" src="JsSIP-DTMF/dist/jssip-0.6.20.js"></script>              
+        <script type="text/javascript" src="JsSIP-DTMF/dist/jssip-0.6.20.min.js"></script>              
+        <script type="text/javascript" src="cliente.js"></script>         
+        <script>JsSIP.debug.enable('JsSIP:*');</script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+
+
+    </head>
+    <body>
+        <div class="row">
+            <div class="col-sm-4">
+                <p class="text-muted">Local</p><video id="localVideo" controls autoplay></video> 
+                <br>
+                <br> 
+                <p class="text-muted">Remoto</p><video id="remoteVideo" controls autoplay></video>  
+                <pre id="info">INFO</pre>
+                <pre id="statusWeb">WEBSOCKET OFF</pre>
+            </div>
+            <div id="teste" class="col-sm-4">       
+
+                <form action="demo_form.asp">
+                    <p class="text-muted">Server WebSocket:</p>  <input class="form-control" type="text" id="websocket" value="ws://"><br />            
+                    <p class="text-muted">Server SIP:</p> <input class="form-control" type="text" id="server" value=""> <br />
+                    <p class="text-muted">User:</p><input type="text" id="user" value=""> <br />
+                    <p class="text-muted">Password:</p> <input type="text" id="password" value=""> <br />
+                </form>
+                <button id="botaoWS" onclick="registerWS()" class="css3button">Registered</button>
+                <br/>
+                <br/>
+                <input type="control-label" id="number"><br/>
+                <button id="1" onclick="sendDtmf('1')" class="css3button">1</button>
+                <button id="2" onclick="sendDtmf('2')" class="css3button">2</button>
+                <button id="3" onclick="sendDtmf('3')" class="css3button">3</button><br/>
+                <button id="4" onclick="sendDtmf('4')" class="css3button">4</button>
+                <button id="5" onclick="sendDtmf('5')" class="css3button">5</button>
+                <button id="6" onclick="sendDtmf('6')" class="css3button">6</button><br/>
+                <button id="4" onclick="sendDtmf('7')" class="css3button">7</button>
+                <button id="5" onclick="sendDtmf('8')" class="css3button">8</button>
+                <button id="6" onclick="sendDtmf('9')" class="css3button">9</button><br/>
+                <button id="star" onclick="sendDtmf('*')" class="css3button">*</button>
+                <button id="0" onclick="sendDtmf('0')" class="css3button">0</button>
+                <button id="#" onclick="sendDtmf('#')" class="css3button">#</button><br/>
+                <button id="startCall" onclick="makeCall()" class="css3button">Call</button>
+                <button id="loopMakeCall" onclick="loopMakeCall(30)" class="css3button">Make 30 Call</button>
+                <button id="hold" onclick="hold()" class="css3button">Hold</button>
+                <button id="endCall" onclick="endCall()" class="css3button">HangUp</button>
+                <textarea id="textArea" rows="4" cols="50">Text Area</textarea> 
+                <button id="textSubmit" onclick="sendText()" class="css3button">send</button>   
+            </div>
+
+
+
+        </div>
+    </body>
+</html>

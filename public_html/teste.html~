@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- <script type="text/javascript" src="SIPml-api.js"></script> -->
+</head>
+
+<body>
+Hello woirld
+<video id="remoteVideo"></video>
+    <video id="localVideo" muted="muted"></video> 
+  <button type="button" id="endButton">End</button>  
+<button type="button" id="callButton">Call</button>
+</body>
+<script type="text/javascript" src="node_modules/jssip/dist/jssip-0.6.18.min.js"></script>
+<script type="text/javascript" src="node_modules/jssip/dist/jssip-0.6.18.js"></script>
+<script type="text/javascript" src="node_modules/jssip/dist/jssip.js"></script>        
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript">
+
+(function () {
+  var session;
+
+  function onAccepted () {
+    alert("You made a call!");
+  }
+
+var userAgent = new SIP.UA({
+  uri: 'sip:100@10.5.0.17:5060',
+  wsServers: ['ws://10.5.0.17:8088/ws'],
+//  wsServers: ['wss://mywebrtc.com:10062'],
+  authorizationUser: '1000',
+  password: '1234'
+});
+
+
+$( document ).ready(function() {
+
+  var endButton = document.getElementById('endButton');
+  endButton.addEventListener("click", function() {
+    session.bye();
+    alert("Call Ended");
+}, false);
+
+});
+
+
+  //here you determine whether the call has video and audio
+  var options = {
+    mediaConstraints: {
+      audio: true,
+      video: true
+    }
+  };
+  //makes the call
+  session = userAgent.invite('111', options);
+  session.on('accepted', onAccepted);
+
+}) ();
+
+
+
+</script>
+</html>

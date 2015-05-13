@@ -1,0 +1,60 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 26/02/2015, 09:35:55
+    Author     : mfr
+*/
+
+button.css3button {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    color: #050505;
+    padding: 4px 44px;
+    background: -moz-linear-gradient(
+        top,
+        #ffffff 0%,
+        #819406 50%,
+        #83a603 50%,
+        #6d8000);
+    background: -webkit-gradient(
+        linear, left top, left bottom,
+        from(#ffffff),
+        color-stop(0.50, #819406),
+        color-stop(0.50, #83a603),
+        to(#6d8000));
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    border: 0px solid #6d8000;
+    -moz-box-shadow:
+        0px 2px 1px rgba(000,000,000,0.1),
+        inset 0px 0px 2px rgba(255,255,255,1);
+    -webkit-box-shadow:
+        0px 2px 1px rgba(000,000,000,0.1),
+        inset 0px 0px 2px rgba(255,255,255,1);
+    box-shadow:
+        0px 2px 1px rgba(000,000,000,0.1),
+        inset 0px 0px 2px rgba(255,255,255,1);
+    text-shadow:
+        0px -1px 0px rgba(000,000,000,0.2),
+        0px 1px 0px rgba(255,255,255,0.4);
+}
+#teste {
+    position:absolute;
+    left:50%;
+    width:500px;
+    height:300px;
+    top: 30%;
+    margin-left:-250px;
+    margin-top:-150px;
+    text-align:center;
+}
+body {
+    text-shadow: 0.5px 0.5px green;
+    background: #888;
+}
+
+
